@@ -1,0 +1,1 @@
+INSERT INTO usuario (id, nome, senha, email) VALUES (1, 'João Silva', '123456', 'joao.silva@email.com'), (2, 'Maria Oliveira',  'abcdef', 'maria.oliveira@email.com'), (3, 'Carlos Souza', 'senha123', 'carlos.souza@email.com');
