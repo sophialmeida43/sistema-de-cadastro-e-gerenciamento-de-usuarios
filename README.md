@@ -1,4 +1,4 @@
-# ☕ Sistema de Cadastro e Gerenciamento de Usuários
+# 🪪 Sistema de Cadastro e Gerenciamento de Usuários
 
 Projeto backend desenvolvido com **Java e Spring Boot**, com foco na construção de uma API REST para gerenciamento de usuários com persistência em banco de dados relacional.
 
