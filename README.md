@@ -10,29 +10,78 @@ A aplicação implementa operações completas de CRUD, com validações de dado
 
 - Java 17+
 - Spring Boot
+- Spring Web
+- Spring Data JPA
 - Maven
-- MariaDB
 - MySQL
+- MariaDB
 - Postman
 
 ---
 
-# 🗄️ Banco de Dados e Configuração de Ambientes
+## 🧠 Arquitetura do Projeto
+O projeto segue uma arquitetura em camadas baseada no ecossistema Spring Boot, com separação clara de responsabilidades:
 
-O projeto foi estruturado utilizando o sistema de **profiles do Spring Boot**, permitindo a execução da aplicação em diferentes ambientes sem necessidade de alterações no código-fonte.
+```java
+dev.sistemadecadastro
+│
+├── controllers → Exposição da API e tratamento de requisições HTTP 
+│ └── UsuarioController
+│
+├── services → Regras de negócio da aplicação
+│ └── UsuarioService
+│
+├── repositories → Acesso a dados via Spring Data JPA
+│ └── UsuarioRepository
+│
+├── entities → Mapeamento das entidades do banco de dados 
+│ └── Usuario
+│
+├── exceptions  → Definição de exceções customizadas
+│ └── NaoEncontradoException
+│
+└── handler → Tratamento global de erros e padronização de respostas
+└── ExceptionHandlers
+```
+  ---
 
-Foram utilizados três arquivos de configuração:
+  ### 🎯 Objetivo da Arquitetura
+
+- Baixo acoplamento entre camadas  
+- Melhor organização e legibilidade do código  
+- Facilidade de manutenção e escalabilidade  
+- Padronização no tratamento de erros
+
+---
+
+# 🗄️ Banco de Dados e Configuração de Ambientes(Spring Profiles)
+O projeto utiliza **Spring Profiles** para alternar entre ambientes sem necessidade de alteração no código-fonte.
+
+### Perfis disponíveis
+
+| Método | Endpoint                     |
+|--------|------------------------------|
+| Home   | Ambiente local com MariaDB   |
+| Curso  | Ambiente de estudo com MySQL |
+
+
+### Arquivos de configuração
 
 - `application.properties`
 - `application-home.properties`
 - `application-curso.properties`
 
-A seleção do ambiente é feita automaticamente através do profile ativo, permitindo alternar entre os bancos de dados configurados.
+### Estratégia adotada
 
-- Ambiente Home → MariaDB  
-- Ambiente Curso → MySQL  
+O arquivo `application.properties` define o profile ativo, permitindo alternância entre ambientes.
 
-As credenciais de acesso ao banco não são expostas no repositório, sendo configuradas localmente em cada ambiente.
+Credenciais sensíveis são gerenciadas via variáveis de ambiente:
+
+```properties
+spring.datasource.username=${DB_USER}
+spring.datasource.password=${DB_PASSWORD}
+
+```
 
 ---
 
@@ -59,9 +108,10 @@ Toda a API foi testada utilizando **Postman**, permitindo validação visual e f
 
 # 🎯 Objetivos do Projeto
 
-- Desenvolver uma API REST funcional com Spring Boot  
-- Aplicar conceitos de persistência de dados  
-- Trabalhar com configuração de ambientes via profiles  
+- Construir uma API REST com Spring Boot  
+- Aplicar arquitetura em camadas
+- Praticar persistência com banco de dados relacional
+- Utilizar múltiplos ambientes com Spring Profiles
 - Praticar boas práticas de desenvolvimento backend  
 - Simular um sistema real de gerenciamento de usuários  
 
