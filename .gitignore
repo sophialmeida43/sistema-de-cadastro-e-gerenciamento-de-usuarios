@@ -39,7 +39,3 @@ target/
 .settings/
 .idea/
 *.iml
-
-application.properties
-application-home.properties
-application-curso.properties
