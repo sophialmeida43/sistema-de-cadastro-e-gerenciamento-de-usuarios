@@ -1,57 +1,72 @@
-# Sistema de Cadastro e Gerenciamento de Usuários
+# ☕ Sistema de Cadastro e Gerenciamento de Usuários
 
-Projeto back-end desenvolvido com Java e Spring Boot para gerenciamento de usuários, utilizando arquitetura em camadas, persistência de dados com JPA/Hibernate e integração com MariaDB.
+Projeto backend desenvolvido com **Java e Spring Boot**, com foco na construção de uma API REST para gerenciamento de usuários com persistência em banco de dados relacional.
 
-## Tecnologias Utilizadas
+A aplicação implementa operações completas de CRUD, com validações de dados, integração com banco de dados e configuração de ambientes distintos de execução.
 
-* Java 21
-* Spring Boot
-* Spring Data JPA
-* Hibernate
-* MariaDB
-* Maven
-* Postman
+---
 
-## Funcionalidades
+# 🚀 Tecnologias Utilizadas
 
-* Cadastro de usuários
-* Consulta de usuários
-* Busca por ID
-* Atualização de dados
-* Exclusão de usuários
-* Tratamento de exceções personalizadas
+- Java 17+
+- Spring Boot
+- Maven
+- MariaDB
+- MySQL
+- Postman
 
-## Estrutura do Projeto
+---
 
-* Controller
-* Service
-* Repository
-* Entity
-* Exception
-* Handler
+# 🗄️ Banco de Dados e Configuração de Ambientes
 
-## Endpoints
+O projeto foi estruturado utilizando o sistema de **profiles do Spring Boot**, permitindo a execução da aplicação em diferentes ambientes sem necessidade de alterações no código-fonte.
 
-### Listar usuários
+Foram utilizados três arquivos de configuração:
 
-GET /usuario
+- `application.properties`
+- `application-home.properties`
+- `application-curso.properties`
 
-### Buscar usuário por ID
+A seleção do ambiente é feita automaticamente através do profile ativo, permitindo alternar entre os bancos de dados configurados.
 
-GET /usuario/{id}
+- Ambiente Home → MariaDB  
+- Ambiente Curso → MySQL  
 
-### Cadastrar usuário
+As credenciais de acesso ao banco não são expostas no repositório, sendo configuradas localmente em cada ambiente.
 
-POST /usuario
+---
 
-### Atualizar usuário
+# 📌 Funcionalidades da API
 
-PUT /usuario/{id}
+- Criação de usuários
+- Consulta de usuários (geral e por ID)
+- Atualização de dados de usuários
+- Remoção de usuários
 
-### Excluir usuário
+---
 
-DELETE /usuario/{id}
+# 📌 Validações e Regras
 
-## Autor
+A aplicação implementa validações para garantir a integridade dos dados, evitando registros com campos nulos ou inconsistentes e segue arquitetura padrão do Spring Boot baseada em separação de responsabilidades.
+
+---
+
+# 🔧 Testes da API
+
+Toda a API foi testada utilizando **Postman**, permitindo validação visual e funcional de todas as operações CRUD.
+
+---
+
+# 🎯 Objetivos do Projeto
+
+- Desenvolver uma API REST funcional com Spring Boot  
+- Aplicar conceitos de persistência de dados  
+- Trabalhar com configuração de ambientes via profiles  
+- Praticar boas práticas de desenvolvimento backend  
+- Simular um sistema real de gerenciamento de usuários  
+
+---
+
+# 👩🏾‍💻 Desenvolvido por
 
 Sophia Almeida
